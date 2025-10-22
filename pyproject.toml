@@ -1,0 +1,24 @@
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[project]
+name = "my_server"
+version = "0.1.0"
+description = "My MCP server"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.15.0",
+    "fastmcp", 
+    "smithery>=0.4.2",
+    "cadquery",
+]
+
+[project.scripts]
+dev = "smithery.cli.dev:main"
+playground = "smithery.cli.playground:main"
+
+# Points to your server function
+[tool.smithery] 
+server = "my_server.server:create_server"
